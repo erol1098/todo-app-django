@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from todo.forms import TodoForm
 from todo.models import Todo
+from django.contrib import messages
 
 #? View Todos
 
@@ -22,6 +23,7 @@ def todo_create(request):
     form = TodoForm(request.POST)
     if form.is_valid():
       form.save()
+      messages.success(request, "Todo created succesfully")
       return redirect("home")
 
   context = {
@@ -56,8 +58,9 @@ def todo_delete(request, id):
 
   if request.method == "POST":
     todo.delete()
+    messages.warning(request, "Todo deleted!")
     return redirect("home")
-    
+
   context = {
     "todo":todo
   }

@@ -1,3 +1,8 @@
-.navbar {
-  background-color: aquamarine;
+body {
+  background-image: url(https://cdn.pixabay.com/photo/2017/01/24/03/53/plant-2004483__480.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+textarea {
+  max-width: 100%;
 }
