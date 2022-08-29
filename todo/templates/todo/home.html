@@ -1,16 +1,19 @@
 {% extends 'todo/base.html' %} {% block content %}
 
-<form action="/add/" method="POST">
-  {% csrf_token %} {{form.as_p}}
-  <input type="submit" value="Add" />
-</form>
+<main class="container d-flex justify-content-between mx-auto my-5 bg-dark">
+  <div class="border">
+    <form action="/add/" method="POST">
+      {% csrf_token %} {{form.as_p}}
+      <input type="submit" value="Add" />
+    </form>
+  </div>
 
-<ul>
-  {% for todo in todos %}
+  <ul>
+    {% for todo in todos %}
 
-  <li>{{todo}}</li>
+    <a href="{% url 'update' todo.id %}"><li>{{todo}}</li></a>
 
-  {% endfor %}
-</ul>
-
+    {% endfor %}
+  </ul>
+</main>
 {% endblock content %}
